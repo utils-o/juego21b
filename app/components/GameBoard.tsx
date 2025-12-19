@@ -20,6 +20,7 @@ export default function GameBoard() {
       const newBoardCells = Array(24).fill(null);
       newBoardCells[0] = "Inicio";
 
+      // eslint-disable-next-line prefer-const
       let remainingIndices = [...Array(24).keys()].slice(1);
 
       const setRandomCells = (label, count) => {
