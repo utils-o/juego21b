@@ -11,9 +11,11 @@ export default function GameBoard() {
   const [player1Pos, setPlayer1Pos] = useState(0);
   const [player2Pos, setPlayer2Pos] = useState(0);
   const [level, setLevel] = useState("calentando"); // antes "chill"
-  const [currentCard, setCurrentCard] = useState(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [currentCard, setCurrentCard] = useState<any>(null);
   const [showCard, setShowCard] = useState(false);
-  const [boardCells, setBoardCells] = useState([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [boardCells, setBoardCells] = useState<any[]>([]);
 
   useEffect(() => {
     const generateBoardCells = () => {
@@ -23,7 +25,7 @@ export default function GameBoard() {
       // eslint-disable-next-line prefer-const
       let remainingIndices = [...Array(24).keys()].slice(1);
 
-      const setRandomCells = (label, count) => {
+      const setRandomCells = (label: string, count: number) => { // Añadimos tipos
         for (let i = 0; i < count; i++) {
           const randIdx = Math.floor(Math.random() * remainingIndices.length);
           const cellIndex = remainingIndices[randIdx];
